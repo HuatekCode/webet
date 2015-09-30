@@ -68,7 +68,7 @@ function settingAppCtrl($scope, $gridService, $timeout, httpUtils, settingServic
             $gridService.resumeLayout($scope.gridName);
             $scope.loading = false;
         }, function (data) {
-            alert("AJAX failed to Load Data");
+            bootbox.alert('AJAX failed to Load Data');
             $scope.loading = false;
         });
     };
@@ -178,9 +178,11 @@ function settingAppCtrl($scope, $gridService, $timeout, httpUtils, settingServic
      * submit click event
      */
     $scope.SaveClick = function () {
-        if (confirm('Do you confirm to submit?')) {
-            updateData();
-        }
+        bootbox.confirm('Do you confirm to submit?', function (result) {
+            if (result) {
+                updateData();
+            }
+        });
     };
 
     /**
@@ -200,29 +202,29 @@ function settingAppCtrl($scope, $gridService, $timeout, httpUtils, settingServic
                 if (row.rows == undefined)
                     childrens += row.text + ',';
             }
-            else{
+            else {
                 style = {normal: 'grey'};
             }
 
             //change cell style
             var cell = null;
-            for(var j=0;j<row.cells.length;j++) {
+            for (var j = 0; j < row.cells.length; j++) {
                 cell = row.cells[j];
                 cell.style = style;
             }
         }
         settingService.updateData(childrens, function (response) {
-            alert(response.data);
+            bootbox.alert(response.data);
             //$scope.loadRemote();
             $scope.loading = false;
 
             //refresh treegrid
-            var refreshTimer = $timeout(function(){
+            var refreshTimer = $timeout(function () {
                 $gridService.updateView($scope.gridName);
                 $timeout.cancel(refreshTimer);
             }, 1);
         }, function (data) {
-            alert(response.data);
+            bootbox.alert(response.data);
             $scope.loadRemote();
         });
     };

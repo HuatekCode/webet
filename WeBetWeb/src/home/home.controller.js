@@ -67,7 +67,8 @@ function homeCtrl($scope, $http, homeService) {
                 $scope.eventTypes.shift();
             }
         }, function (err) {
-            alert('connect error!');
+            //alert('connect error!');
+            bootbox.alert('connect error!');
         });
 
         //other types is disabled!
@@ -86,7 +87,7 @@ function homeCtrl($scope, $http, homeService) {
                 $scope.eventTypes = [];
             }
         }, function (err) {
-            alert('connect error!');
+            bootbox.alert('connect error!');
         });
     }
 
@@ -109,7 +110,7 @@ function homeCtrl($scope, $http, homeService) {
                 $scope.firstShowCompetition = {};
             }
         }, function (err) {
-            alert('connect error!');
+            bootbox.alert('connect error!');
         });
     }
 
@@ -133,7 +134,7 @@ function homeCtrl($scope, $http, homeService) {
                 //alert('fetch Competitions failed!');
             }
         }, function (err) {
-            alert('connect error!');
+            bootbox.alert('connect error!');
         });
     }
 
@@ -162,7 +163,7 @@ function homeCtrl($scope, $http, homeService) {
                     $scope.hasEventsMore = 'N';
                 }
             }, function (err) {
-                alert('connect error!');
+                bootbox.alert('connect error!');
             })
         })
     }
@@ -176,7 +177,7 @@ function homeCtrl($scope, $http, homeService) {
         homeService.getMarketsByEventId(eventId, function (data) {
             $scope.selectEventMarkets = data;
         }, function (err) {
-            alert('connect error!');
+            bootbox.alert('connect error!');
         })
     }
 
@@ -212,7 +213,7 @@ function homeCtrl($scope, $http, homeService) {
             $scope.selectCompetitionEvents = data;
             $scope.hasEventsMore = 'N';
         }, function (err) {
-            alert('connect error!');
+            bootbox.alert('connect error!');
         })
     }
 

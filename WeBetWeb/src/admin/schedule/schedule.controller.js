@@ -26,7 +26,6 @@ function scheduleAppCtrl($scope, $http, $timeout, Restangular) {
     $scope.$watch('$viewContentLoaded', function () {
         $('.requiredType').hide();
         $('.requiredExtra').hide();
-
         /**
          * datetimepicker initial set
          */
@@ -79,7 +78,7 @@ function scheduleAppCtrl($scope, $http, $timeout, Restangular) {
                 }
             }
         }, function errorCallback(err) {
-            console.log("There was an error saving:" + JSON.stringify(err));
+            //console.log("There was an error saving:" + JSON.stringify(err));
         });
     });
 
@@ -125,7 +124,7 @@ function scheduleAppCtrl($scope, $http, $timeout, Restangular) {
                 $scope.extraScheduleTimer = obj.timer;
             }
         }, function errorCallback(err) {
-            alert("error:" + JSON.stringify(err.data));
+            //alert("error:" + JSON.stringify(err.data));
         });
     }
 
@@ -133,10 +132,16 @@ function scheduleAppCtrl($scope, $http, $timeout, Restangular) {
      * timing update
      */
     function updateNowTimer() {
+
+        bootbox.confirm("Are your sure to update bet data now?",
+            function(result){
+                if(!result) {
+                    return;
+                }
+            });
         Schedule.get('updateNowSchedule').then(function (data) {
-            alert('update now');
         }, function errorCallback(err) {
-            alert("There was an error :" + JSON.stringify(err.data));
+            //alert("There was an error :" + JSON.stringify(err.data));
         });
     }
 
@@ -145,27 +150,41 @@ function scheduleAppCtrl($scope, $http, $timeout, Restangular) {
      * @param type
      */
     function cancelOnTimer(type) {
+
         if ($scope.onTimerText === 'unset') {
+            bootbox.alert("Have any Periodic Update to cancel");
             return;
         }
-        Schedule.get('cancelSchedule', {type: 'cancelOnTime'}).then(function (data) {
-            $scope.onTimeDesc = 'unset';
-            $scope.onTimerText = 'unset';
-        }, function errorCallback(err) {
-            alert("There was an error :" + JSON.stringify(err.data));
-        });
+
+        bootbox.confirm("Are your sure to cancel Periodic Update?",
+            function(result){
+                if(result) {
+                    Schedule.get('cancelSchedule', {type: 'cancelOnTime'}).then(function (data) {
+                        $scope.onTimeDesc = 'unset';
+                        $scope.onTimerText = 'unset';
+                    }, function errorCallback(err) {
+                        //alert("There was an error :" + JSON.stringify(err.data));
+                    });
+                }
+            });
     }
 
     function cancelExtraTimer(type) {
         if ($scope.extraScheduleTimer === 'unset') {
+            bootbox.alert("Have any Extra Schedule to cancel");
             return;
         }
 
-        Schedule.get('cancelSchedule', {type: 'cancelExtra'}).then(function (data) {
-            $scope.extraDesc = 'unset';
-            $scope.extraScheduleTimer = 'unset';
-        }, function errorCallback(err) {
-            alert("There was an error :" + JSON.stringify(err.data));
-        });
+        bootbox.confirm("Are your sure to cancel Extra Schedule?",
+            function(result){
+                if(result) {
+                    Schedule.get('cancelSchedule', {type: 'cancelExtra'}).then(function (data) {
+                        $scope.extraDesc = 'unset';
+                        $scope.extraScheduleTimer = 'unset';
+                    }, function errorCallback(err) {
+                        //alert("There was an error :" + JSON.stringify(err.data));
+                    });
+                }
+            });
     }
 }
