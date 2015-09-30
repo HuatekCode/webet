@@ -1,0 +1,29 @@
+.directive
+{
+    border: thin solid #cecece;
+    height: 400px;
+}
+.checkbox
+{
+    width: 38px;
+    margin: auto;
+}
+.checkbox-box
+{
+    border: 0;
+    display: inline-block;
+    width: 38px;
+    height: 14px;
+}
+.checkbox-checked
+{
+    background-image: url("../../../resource/img/treegrid/checkbox/checkbox-checked-5.png");
+}
+.checkbox-unchecked
+{
+    background-image: url("../../../resource/img/treegrid/checkbox/checkbox-unchecked-5.png");
+}
+.grey {
+    /*background-color: white;*/
+    color: #cecece;
+}

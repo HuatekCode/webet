@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8"/>
+    <title>WeBet | Management</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
+          type="text/css"/>
+    <link href="../resource/css/admin/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../resource/css/admin/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../resource/css/admin/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="../resource/css/admin/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN THEME STYLES -->
+    <link href="../resource/css/admin/layout.css" rel="stylesheet" type="text/css"/>
+    <link href="../resource/css/admin/grey.css" rel="stylesheet" type="text/css" id="style_color"/>
+
+    <link rel="stylesheet" type="text/css" href="../resource/css/admin/bootstrap-datepicker3.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../resource/css/admin/bootstrap-datetimepicker.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../resource/css/admin/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="../resource/css/admin/todo.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="../resource/css/admin/components-md.css"/>-->
+    <!--<link rel="stylesheet" type="text/css" href="../resource/css/admin/components"/>-->
+    <link rel="stylesheet" type="text/css" href="../resource/css/admin/plugins-md.css"/>
+    <!-- END THEME STYLES -->
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="page-boxed page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo"
+      ng-app="betAdminApp">
+<!-- BEGIN HEADER -->
+<div ng-include="'header.html'">
+</div>
+<!-- END HEADER -->
+<div class="clearfix">
+</div>
+
+<div class="container">
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container">
+        <!-- BEGIN SIDEBAR -->
+        <div class="page-sidebar-wrapper">
+            <div class="page-sidebar navbar-collapse collapse">
+                <!-- BEGIN SIDEBAR MENU -->
+                <ul class="page-sidebar-menu page-sidebar-menu-hover-submenu " data-keep-expanded="false"
+                    data-auto-scroll="true" data-slide-speed="200">
+                    <li>
+                        <a href="index.html">
+                            <i class="icon-home"></i>
+                            <span class="title">Dashboard</span>
+                            <span class="arrow "></span>
+                        </a>
+                    </li>
+                    <li  class="start active">
+                        <a href="javascript:" ui-sref="schedule">
+                            <i class="icon-docs"></i>
+                            <span class="title">Update</span>
+                            <span class="arrow"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:" ui-sref="setting">
+                            <i class="icon-settings"></i>
+                            <span class="title">Setting</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="icon-diamond"></i>
+                            <span class="title">Reward</span>
+                            <span class="arrow "></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="icon-paper-plane"></i>
+                            <span class="title">Vision </span>
+                            <span class="arrow "></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="icon-wallet"></i>
+                            <span class="title">Wallet</span>
+                            <span class="arrow "></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="icon-user"></i>
+                            <span class="title">Login Options</span>
+                            <span class="arrow "></span>
+                        </a>
+                    </li>
+                    <li class="last ">
+                        <a href="javascript:;">
+                            <i class="icon-pointer"></i>
+                            <span class="title">Maps</span>
+                            <span class="arrow "></span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- END SIDEBAR MENU -->
+            </div>
+        </div>
+        <!-- END SIDEBAR -->
+        <!-- BEGIN CONTENT -->
+        <div class="page-content-wrapper">
+            <div class="page-content" ui-view="">
+            </div>
+        </div>
+        <!-- END CONTENT -->
+    </div>
+    <!-- END CONTAINER -->
+
+    <!-- BEGIN FOOTER -->
+    <div ng-include="'footer.html'"></div>
+    <!-- END FOOTER -->
+</div>
+
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- BEGIN CORE PLUGINS -->
+<!--[if lt IE 9]>
+<script type="text/javascript" src="../resource/js/respond.min.js"></script>
+<script type="text/javascript" src="../resource/js/excanvas.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="../resource/js/angular.min.js"></script>
+<script type="text/javascript" src="../resource/js/jquery.min.js"></script>
+<!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+<script type="text/javascript" src="../resource/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../resource/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../resource/js/jquery.slimscroll.min.js"></script>
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script type="text/javascript" src="../resource/js/metronic.js"></script>
+<script type="text/javascript" src="../resource/js/layout.js"></script>
+<script type="text/javascript" src="../resource/js/quick-sidebar.js"></script>
+<script type="text/javascript" src="../resource/js/index.js"></script>
+<script type="text/javascript" src="../resource/js/angular-animate.min.js"></script>
+<script type="text/javascript" src="../resource/js/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="../resource/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="../resource/js/select2.min.js"></script>
+<script type="text/javascript" src="../resource/js/todo.js"></script>
+
+<script type="text/javascript" src="../resource/js/treegrid/angular.integralui.min.js"></script>
+<script type="text/javascript" src="../resource/js/treegrid/angular.integralui.checkbox.min.js"></script>
+<script type="text/javascript" src="../resource/js/treegrid/angular.integralui.lists.min.js"></script>
+<script type="text/javascript" src="../resource/js/treegrid/angular.integralui.treegrid.min.js"></script>
+<!--<script type="text/javascript" src="../resource/js/lodash.min.js"></script>-->
+<script type="text/javascript" src="../resource/js/lodash.compat.min.js"></script>
+<script type="text/javascript" src="../resource/js/restangular.js"></script>
+<script type="text/javascript" src="../resource/js/restangular.min.js"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
+<script>
+    jQuery(document).ready(function () {
+        Metronic.init(); // init metronic core componets
+        Layout.init(); // init layout
+        QuickSidebar.init(); // init quick sidebar
+        Index.init();
+        Index.initDashboardDaterange();
+    })
+</script>
+<!-- END JAVASCRIPTS -->
+
+<script src="../utils/httputil.module.js" type="text/javascript"></script>
+<script src="../utils/httputil.services.js" type="text/javascript"></script>
+
+
+<!-- START SETTING -->
+<script type="text/javascript" src="schedule/schedule.module.js"></script>
+<script type="text/javascript" src="schedule/schedule.route.js"></script>
+<script type="text/javascript" src="schedule/schedule.controller.js"></script>
+
+<script type="text/javascript" src="admin.module.js"></script>
+<script type="text/javascript" src="admin.config.js"></script>
+
+<!-- START SETTING -->
+<script type="text/javascript" src="setting/setting.module.js"></script>
+<script type="text/javascript" src="setting/setting.route.js"></script>
+
+<script type="text/javascript" src="setting/setting.services.js"></script>
+<script type="text/javascript" src="setting/setting.controller.js"></script>
+<script type="text/javascript" src="setting/setting.directive.js"></script>
+<script type="text/javascript" src="setting/settingInitial.directive.js"></script>
+<script src="setting/loading.directive.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../resource/css/admin/treegrid/samples.css"/>
+<link rel="stylesheet" href="../resource/css/admin/treegrid/integralui.css"/>
+<link rel="stylesheet" href="../resource/css/admin/treegrid/integralui.checkbox.css"/>
+<link rel="stylesheet" href="../resource/css/admin/treegrid/integralui.treegrid.css"/>
+<link rel="stylesheet" href="../resource/css/admin/treegrid/themes/theme-flat-blue.css"/>
+<link rel="stylesheet" href="../resource/css/admin/loading.css"/>
+<link rel="stylesheet" href="../resource/css/admin/treegrid.css"/>
+<!-- END SETTING -->
+
+</body>
+<!-- END BODY -->
+</html>

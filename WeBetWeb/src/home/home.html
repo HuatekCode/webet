@@ -1,0 +1,221 @@
+<header class="page-header">
+    <nav class="navbar mega-menu" role="navigation">
+        <div class="container-fluid">
+            <div class="clearfix navbar-fixed-top">
+                <!--Brand and toggle get grouped for better mobile display-->
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target=".navbar-responsive-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                            <span class="toggle-icon">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </span>
+                </button>
+                <!--End Toggle Button-->
+                <!--BEGIN LOGO-->
+                <a id="index" class="page-logo" href="#">
+                    <img src="../resource/img/logo.png" alt="Logo">
+                </a>
+                <!--END LOGO-->
+                <!--BEGIN TOPBAR ACTIONS-->
+                <div class="topbar-actions">
+                    <!--BEGIN GROUP NOTIFICATION-->
+                    <div class="btn-group-notification btn-group" id="header_notification_bar">
+                        <button type="button" class="btn btn-sm">
+                            <i class="icon-bell"></i>
+                            <span class="badge">7</span>
+                        </button>
+                    </div>
+                    <!--END GROUP NOTIFICATION-->
+                    <!--BEGIN USER PROFILE-->
+                    <div class="btn-group-img btn-group">
+                        <button type="button" class="btn btn-sm dropdown-toggle">
+                            <span>Hi, Benjamin</span>
+                            <img src="../resource/img/avatar1.jpg" alt="">
+                        </button>
+                    </div>
+                    <!--END USER PROFILE-->
+                    <!--BEGIN QUICK SIDEBAR TOGGLER-->
+                    <button type="button" class="quick-sidebar-toggler" data-toggle="collapse">
+                        <span class="sr-only">Toggle Quick Sidebar</span>
+                        <i class="icon-logout"></i>
+                    </button>
+                    <!--END QUICK SIDEBAR TOGGLER-->
+                </div>
+                <!--END TOPBAR ACTIONS-->
+            </div>
+            <!--Collect the nav links, forms, and other content for toggling-->
+            <div class="nav-collapse collapse navbar-collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav text-uppercase">
+                    <li class="dropdown dropdown-fw selected open">
+                        <a href="javascript:;">{{SoccerEventType.name}}</a>
+                        <ul class="dropdown-menu dropdown-menu-fw">
+                            <li class="active">
+                                <a ng-click="changeCompetition(firstShowCompetition.id)">{{firstShowCompetition.name}}</a>
+                            </li>
+                            <li ng-repeat="item in selectTypeCompetitions | startFrom : 1 | limitTo : competitionShowCount">
+                                <a ng-click="changeCompetition(item.id)">{{item.name}}</a>
+                            </li>
+                            <li class="dropdown more-dropdown-sub"
+                                ng-show="selectTypeCompetitions != null && selectTypeCompetitions.length > competitionShowCount">
+                                <a href="javascript:;" data-close-others="true">More</a>
+                                <ul class="dropdown-menu">
+                                    <li ng-repeat="item in selectTypeCompetitions  | startFrom : competitionShowCount">
+                                        <a ng-click="changeCompetition(item.id)">{{item.name}}</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li ng-repeat="item in eventTypes | limitTo : eventTypeShowCount">
+                        <a href="javascript:;">{{item.name}}</a>
+                    </li>
+                    <li class="dropdown more-dropdown"
+                        ng-show="eventTypes != null && eventTypes.length > eventTypeShowCount">
+                        <a href="javascript:;" data-close-others="true">More</a>
+                        <ul class="dropdown-menu">
+                            <li ng-repeat="item in eventTypes  | startFrom : eventTypeShowCount">
+                                <a href="javascript:;">{{item.name}}</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!--END NAVBAR COLLAPSE-->
+        </div>
+        <!--/container-->
+    </nav>
+</header>
+<!--Header END-->
+<!--Page Content BEGIN-->
+<div class="container-fluid">
+    <div class="page-content">
+        <div class="row">
+            <div class="col-md-6">
+                <!--BEGIN PORTLET-->
+                <div class="portlet light bordered tasks-widget">
+                    <div class="portlet-title">
+                        <div class="caption caption-md font-blue">
+                            <i class="icon-calendar font-blue"></i>
+                            <span class="caption-subject theme-font bold uppercase">Events</span>
+                            <span class="caption-helper">{{selectCompetitionEvents.total == null ? 0 :selectCompetitionEvents.total}} records</span>
+                        </div>
+                        <div class="inputs">
+                            <div class="portlet-input input-small input-inline">
+                                <div class="input-icon right">
+                                    <i class="icon-magnifier"></i>
+                                    <input type="text" ng-keyup="searchEvents($event)"
+                                           class="form-control form-control-solid" placeholder="search...">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="task-content">
+                            <div class="scroller" style="height: 282px;" data-always-visible="1" data-rail-visible1="0"
+                                 data-handle-color="#7C7D7F">
+                                <!--START TASK LIST-->
+                                <ul class="task-list">
+                                    <li ng-show="selectCompetitionEvents.items.length === 0">
+                                        <div class="task-title">
+													<span class="task-title-center">
+														No record found.
+													</span>
+                                        </div>
+                                    </li>
+                                    <li ng-repeat="item in selectCompetitionEvents.items">
+                                        <div class="task-title">
+													<span class="task-title-left">
+														<a ng-click="changeEvent(item.id)">{{item.name}}</a></span>
+													<span class="task-title-right">
+														{{item.openDate | date : 'dd/MM/yyyy HH:mm:ss'}}
+													</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <!--END START TASK LIST-->
+                            </div>
+                        </div>
+                        <div class="task-footer" ng-show="hasEventsMore == 'Y'">
+                            <div class="btn-arrow-link pull-right">
+                                <a ng-click="showMoreEvents()">See All Events</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--END PORTLET-->
+            </div>
+            <div class="col-md-6">
+                <!--BEGIN PORTLET-->
+                <div class="portlet light bordered">
+                    <div class="portlet-title">
+                        <div class="caption caption-md font-red-sunglo">
+                            <i class="icon-bubble font-red-sunglo"></i>
+                            <span class="caption-subject theme-font bold uppercase">Markets</span>
+                            <span class="caption-helper">{{selectEventMarkets == null ? 0 : selectEventMarkets.length}} records</span>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="scroller" style="height: 282px;" data-always-visible="1" data-rail-visible1="0"
+                             data-handle-color="#7C7D7F">
+                            <div class="general-item-list">
+                                <table class="table table-condensed table-striped"
+                                       ng-repeat="item in selectEventMarkets">
+                                    <caption>{{item.marketName}}</caption>
+                                    <thead>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th>Back</th>
+                                    <th>Lay</th>
+                                    <th></th>
+                                    <th></th>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="runer in item.runners">
+                                        <td>{{runer.runnerName}}&nbsp;{{runer.handicap}}</td>
+                                        <td ng-if="runer == null || runer.ex == null || runer.ex.availableToBack == null || runer.ex.availableToBack.length < 3">
+                                            &nbsp;</td>
+                                        <td ng-if="runer == null || runer.ex == null || runer.ex.availableToBack == null || runer.ex.availableToBack.length < 2">
+                                            &nbsp;</td>
+                                        <td ng-if="runer == null || runer.ex == null || runer.ex.availableToBack == null || runer.ex.availableToBack.length < 1">
+                                            &nbsp;</td>
+                                        <td ng-repeat="backData in runer.ex.availableToBack | orderBy:'price' | startFrom : runer.ex.availableToBack.length - 3 | limitTo : 3">
+                                            {{backData.price}}
+                                        </td>
+                                        <td ng-repeat="availableData in runer.ex.availableToLay | orderBy: 'price' | limitTo: 3">
+                                            {{availableData.price}}
+                                        </td>
+                                        <td ng-if="runer == null || runer.ex == null || runer.ex.availableToLay == null || runer.ex.availableToLay.length < 1">
+                                            &nbsp;</td>
+                                        <td ng-if="runer == null || runer.ex == null || runer.ex.availableToLay == null || runer.ex.availableToLay.length < 2">
+                                            &nbsp;</td>
+                                        <td ng-if="runer == null || runer.ex == null || runer.ex.availableToLay == null || runer.ex.availableToLay.length < 3">
+                                            &nbsp;</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <!--</div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--END PORTLET-->
+            </div>
+        </div>
+    </div>
+    <!--Page Content END-->
+    <!--Copyright BEGIN-->
+    <p class="copyright">
+        2015 &copy; WeBet by <a href="http://www.huatek.com" title="WeBet Sample Site" target="_blank">Huatek</a>
+    </p>
+    <!--Copyright END-->
+</div>
+
+<script>
+    jQuery(document).ready(function () {
+        Metronic.init(); // init metronic core componets
+    });
+</script>
+<!--END JAVASCRIPTS-->

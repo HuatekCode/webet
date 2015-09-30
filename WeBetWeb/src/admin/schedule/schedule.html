@@ -1,0 +1,162 @@
+<!-- BEGIN PAGE HEADER-->
+<h3 class="page-title">
+    Update</h3>
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="#">Home</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a href="#">Update</a>
+        </li>
+    </ul>
+</div>
+<!-- END PAGE HEADER-->
+<!-- BEGIN DASHBOARD STATS -->
+<div class="todo-content">
+    <div class="portlet light">
+        <div class="portlet-body">
+            <div class="row">
+                <div class="col-md-5 col-sm-4">
+                    <div class="slimScrollDiv"
+                         style="position: relative; overflow: hidden; width: auto; height: 600px;">
+                        <div class="scroller" style="max-height: 600px;" data-always-visible="0" data-rail-visible="0"
+                             data-handle-color="#dae3e7">
+
+                            <div class="todo-tasklist-item todo-tasklist-item-border-yellow">
+                                <img class="todo-userpic pull-left" src="../../resource/img/time.png" width="27px"
+                                     height="27px">
+
+                                <div class="todo-tasklist-item-title">Update Now</div>
+                                <div class="todo-tasklist-item-text">Click this button will update bet data now!</div>
+                                <div class="todo-tasklist-controls pull-left">
+                                        <span class="todo-tasklist-date">
+                                            <i class="fa fa-calendar"></i>
+                                            <button class="todo-tasklist-badge badge badge-roundless updateNow">Update
+                                                Now
+                                            </button>
+                                        </span>
+                                </div>
+                            </div>
+                            <div class="todo-tasklist">
+                                <div class="todo-tasklist-item todo-tasklist-item-border-green">
+                                    <img class="todo-userpic pull-left" src="../../resource/img/time.png" width="27px"
+                                         height="27px">
+
+                                    <div class="todo-tasklist-item-title">On Time</div>
+                                    <div class="todo-tasklist-item-text">{{onTimeDesc}}</div>
+                                    <div class="todo-tasklist-controls pull-left">
+                                        <span class="todo-tasklist-date">
+                                            <i class="fa fa-calendar"></i>
+                                            {{onTimerText}}
+                                        </span>
+                                        <button class="todo-tasklist-badge badge badge-roundless cancelOnTime">Cancel
+                                        </button>
+                                        <!--<span class="todo-tasklist-badge badge badge-roundless">Urgent</span>-->
+                                    </div>
+                                </div>
+                                <div class="todo-tasklist-item todo-tasklist-item-border-red">
+                                    <img class="todo-userpic pull-left" src="../../resource/img/turn.png" width="27px"
+                                         height="27px">
+
+                                    <div class="todo-tasklist-item-title">Extra Schedule</div>
+                                    <div class="todo-tasklist-item-text">{{extraDesc}}</div>
+                                    <div class="todo-tasklist-controls pull-left">
+                                        <span class="todo-tasklist-date">
+                                            <i class="fa fa-calendar"></i>
+                                            {{extraScheduleTimer}}
+                                        </span>
+                                        <button class="todo-tasklist-badge badge badge-roundless cancelExtra">Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="todo-tasklist-devider"></div>
+                <div class="col-md-7 col-sm-8">
+                    <div class="slimScrollDiv"
+                         style="position: relative; overflow: hidden; width: auto; height: 600px;">
+                        <div class="scroller" style="max-height: 600px; overflow: hidden;" data-always-visible="0"
+                             data-rail-visible="0" data-handle-color="#dae3e7">
+                            <form action="#" class="form-horizontal">
+                                <!--TASK HEAD-->
+                                <div class="form">
+                                    <div class="form-group">
+                                        <div class="col-md-8 col-sm-8">
+                                            <div class="todo-taskbody-user">
+                                                <span class="todo-username pull-left">New Schedule</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--END TASK HEAD-->
+                                    <!--TASK TAGS-->
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <div class="select2-container select2-container-multi form-control todo-taskbody-tags">
+
+                                                <select class="form-control input-inline input-sm input-small scheduleTypeSelect"
+                                                        ng-model="scheduleType">
+                                                    <option value="onTimer">On Time</option>
+                                                    <option value="extraTimer">Extra Schedule</option>
+                                                </select>
+                                                <label class="requiredType">required</label>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--TASK TAGS-->
+                                    <!--TASK DUE DATE-->
+                                    <div class="form-group onTimerBox" style="display: none;">
+                                        <div class="col-md-12">
+                                            <div class="todo-tasklist-item-title">
+                                                <span>Set synchronous frequency for hours:&nbsp;&nbsp;</span>
+                                                <input class="hourSelect" type="number" min="1" max="24"
+                                                       ng-model="onTimer" required ng-init="onTimer = 1"/>
+                                                <label class="requiredOnTimer">required</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group extraTimerBox" style="display: none;">
+                                        <div class="col-md-12">
+                                            <div class="input-icon">
+                                                <span class="todo-tasklist-item-title">Set the next synchronization time:</span>
+
+                                                <div class="scheduledatetime">
+                                                    <input type="text" class="add-on extraTimer"
+                                                           placeholder="Due Date..." ng-readonly="true"
+                                                           ng-model="extraTimer" required/>
+                                                    <label class="requiredExtra">required</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--TASK DESC-->
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <textarea class="form-control todo-taskbody-taskdesc" rows="8"
+                                                      placeholder="Schedule Description..."
+                                                      ng-model="descTimer"></textarea>
+                                        </div>
+                                    </div>
+                                    <!--END TASK DESC-->
+                                    <div class="form-actions right todo-form-actions">
+                                        <button type="submit" class="btn btn-circle btn-sm green-haze saveSchedule">Save Changes
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- END DASHBOARD STATS -->
+<div class="clearfix">
+</div>

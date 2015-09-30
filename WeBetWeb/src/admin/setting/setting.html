@@ -1,0 +1,46 @@
+<!-- START LOADING-->
+<loading>
+    <img alt="" src='../resource/img/wait-loading.gif' style='vertical-align: middle; margin-right: 7px;'/><b></b>
+</loading>
+<!-- END LOADING-->
+
+<!-- BEGIN PAGE HEADER-->
+<h3 class="page-title">
+    Setting</h3>
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="../index.html">Home</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a href="#">Setting</a>
+        </li>
+    </ul>
+</div>
+<!-- END PAGE HEADER-->
+
+<!-- BEGIN DASHBOARD STATS -->
+<div class="page-bar">
+    <div style="float: right">
+        <div-submit></div-submit>
+    </div>
+    <div class="content" style="margin-top: 30px;">
+        <div class="feature">
+            <div class="feature-content">
+                <div style="display:inline-block;margin-top: 10px;">
+                    <iui-treegrid name="{{gridName}}" initial class="directive" columns="columns" rows='rows'
+                                  expanding-column-index="1" show-footer="false" cell-click="onCellClick(e)"
+                                  allow-cell-focus="false"></iui-treegrid>
+                    <br style="clear:both;"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END DASHBOARD STATS -->
+<div class="clearfix">
+</div>
+
+

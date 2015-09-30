@@ -1,0 +1,28 @@
+{
+  "name": "WeBetWeb",
+  "version": "0.0.0",
+  "authors": [
+    "huatek <benjamin_liu@huatek.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "webet"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.huatek.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}
