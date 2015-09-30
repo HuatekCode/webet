@@ -6,6 +6,9 @@
 ### WebetWeb
 	前台页面项目
 
+### mongodb
+    参考测试数据
+
 ## 项目数据
 
 ### 测试数据恢复
@@ -13,19 +16,7 @@
 
 ### 有market的测试数据（参考）
 
-    Compeition：（Singapore S League）
+    Compeition：（IsthmianPremier）
         Events：
-            Home Utd v Tampines Rovers
-            Courts Young Lions v Brunei DPMM FC
-            Balestier Khalsa v Harimau Muda B
-            
-    Compeition：（Ligue 2 Orange）
-        Events：
-            Dijon v Laval
-            Paris FC v Nancy
-            AC Ajaccio v Auxerre
-            Red Star v Brest
-            Creteil v Le Havre
-            Lens v Sochaux
-            ...
-	...
+            Lewes v Tonbridge Angels
+            Leatherhead FC v Grays Athletic
